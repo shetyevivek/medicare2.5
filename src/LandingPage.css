@@ -1,0 +1,76 @@
+@import url('./font.css');
+
+.header {
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+padding: 70px 0px;
+background-position: 50%;
+}
+
+.zipInput {
+  height: 75px;
+  background-color: #f5f9ff;
+  padding: 5px;
+  color: rgb(59 130 246 / var(--tw-border-opacity));
+  font-size: large;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  
+  
+}
+
+
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+.zipSubmit {
+  height: 75px;
+  font-family: 'ThiccBoiBold';
+  width: 100%;
+
+}
+
+
+.startIcon {
+  min-width: 150px;
+}
+
+
+.lastSec {
+  background-image: url('./images/hands.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.icon {
+  width: 200px;
+}
+
+
+.pText {
+  width: 100%;
+  
+}
+.check {
+  background-image: url('./images/check.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+/* .formSection {
+  max-width: 80%;
+  align-items: left;
+  margin: 0;
+}
+
+@media screen (660px){
+  .formSection 
+} */

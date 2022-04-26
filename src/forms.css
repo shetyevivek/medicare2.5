@@ -1,0 +1,76 @@
+.buttonBlock {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.chooseButton {
+  min-width: 200px;
+  max-width: 200px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 22px;
+  min-height: 75px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+}
+
+.formArea {
+  min-height: 600px;
+}
+
+.buttonBlockRow {
+    
+  display:block;
+  max-width: 100%;
+  margin: 0 auto;
+
+}
+
+
+.dateButton {
+    
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  margin: 10px;
+  font-size: 18px;
+  min-width: 65px;
+  cursor: pointer;
+  text-align: center;
+}
+.monthButton {
+  min-width: 200px;
+  max-width: 200px;
+  padding: 10px;
+  margin: 15px;
+  font-size: 22px;
+  min-height: 75px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+}
+
+.numberFont {
+  font-family: ThiccBoiThiccAF;
+}
+
+.zipInput {
+  height: 75px;
+  background-color: #f5f9ff;
+  padding: 5px;
+  color: rgb(59 130 246 / var(--tw-border-opacity));
+  font-size: large;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  
+  
+}
+.lottie{
+  height: 60vh;
+  width: auto;
+  margin: 0 auto;
+
+}
