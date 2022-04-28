@@ -22,7 +22,7 @@ var decryptedPhoneKey = decryptedPhone.toString(CryptoJS.enc.Utf8);
 
 var encryptedEmail = "U2FsdGVkX1+txazCwBQnS0p9QCJxf697lPLNg8cGEqQLK9qotOSBXsZ2BZc+iFISlsIYTON743ssGXRKF0e2cSmldwHS+cjlicPWJtcgCBwbwuwaaK8Io63X5WU+BMlN";
 var decryptedEmail = CryptoJS.AES.decrypt(encryptedEmail, "APIKey");
-var decryptedEmail = decryptedEmail.toString(CryptoJS.enc.Utf8);
+var decryptedEmailKey = decryptedEmail.toString(CryptoJS.enc.Utf8);
 
 
 class EmailPhone extends Component {
@@ -32,6 +32,8 @@ class EmailPhone extends Component {
       email: " ",
       phone: " ",
       submitDisabled: true,
+      EmailOk: true,
+      PhoneOk: true,
       progress: 10,
       error: "",
       loading: false,
@@ -104,7 +106,7 @@ class EmailPhone extends Component {
       
       const options = {
         headers: {
-          'Authorization': 'Bearer ' + decryptedEmail,
+          'Authorization': 'Bearer ' + decryptedEmailKey,
           'Content-Type': 'application/json'
         }
       };
@@ -114,19 +116,29 @@ class EmailPhone extends Component {
         if(res.data.result.verdict !== 'Valid')
         {
           toast.error('😬 Please Enter A Valid Email!');
-  
+
           this.setState({
+            EmailOk: false,
             submitDisabled: true
           })
         }
         else
         {
+          toast.dismiss();
+
           this.setState({
-            submitDisabled: false
+            EmailOk: true
           })
+
+          if((this.state.EmailOk === true) && (this.state.PhoneOk === true))
+          {
+            this.setState({
+              submitDisabled: false
+            })
+          }
         }
       });
-    }, 1000);
+    }, 500);
 
     this.props.setEmail(email);
   }
@@ -150,32 +162,43 @@ class EmailPhone extends Component {
             const type = res.data.carrier.type;
             if(!(type === 'mobile' || type === 'voip'))
             {
-              toast.error("Please Enter A Valid Phone Number!");
-  
+              toast.error("😬 Please Enter A Valid Phone Number!");
+
               this.setState({
+                PhoneOk: false,
                 submitDisabled: true
               })
             }
             else
-            { 
+            {
+              toast.dismiss();
+
               this.setState({
-                submitDisabled: false
+                PhoneOk: true
               })
+
+              if((this.state.EmailOk === true) && (this.state.PhoneOk === true))
+              {
+                this.setState({
+                  submitDisabled: false
+                })
+              }
             }
           });
         }
         catch (err)
         {
           toast.error("😬 Please Enter A Valid Phone Number!");
-  
+
           this.setState({
+            PhoneOk: false,
             submitDisabled: true
           })
         }
       };
   
       phoneGetRequest();
-    }, 1000);
+    }, 500);
 
     this.props.setPhone(realPhone);
 
